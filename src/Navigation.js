@@ -3,6 +3,7 @@ import {
   AppBar,
   Button,
   IconButton,
+  Switch,
   Toolbar,
   Typography
 } from "@material-ui/core";
@@ -20,22 +21,30 @@ const useStyles = makeStyles({
 
 const Navigation = ({ reloadShelters }) => {
   const classes = useStyles();
+  const isLoggedIn = true;
 
   return (
     <AppBar position="sticky" elevation={0} square={false}>
       <Toolbar>
+        <Typography variant="h6" className={classes.title}>
+          Latched 24/7
+        </Typography>
         <IconButton
-          edge="start"
+          edge="end"
           className={classes.menuButton}
           color="inherit"
           onClick={() => reloadShelters()}
         >
           <RefreshIcon />
         </IconButton>
-        <Typography variant="h6" className={classes.title}>
-          COOLING CENTERS APP
-        </Typography>
-        
+        {isLoggedIn && (
+          <Switch
+            checked={true}
+            onChange={() => {}}
+            value="checkedA"
+            inputProps={{ 'aria-label': 'secondary checkbox' }}
+          />
+        )}
       </Toolbar>
     </AppBar>
   );

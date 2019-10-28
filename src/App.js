@@ -14,15 +14,7 @@ const App = () => {
       <Navigation reloadShelters={refetch} />
 
       <Grid container spacing={1}>
-        {shelters.map(shelter => (
-          <Shelter
-            name={shelter.name}
-            address={shelter.address}
-            phone={shelter.phone}
-            key={shelter.id}
-          />
-        ))}
-
+        <p>Hello</p>
       </Grid>
     </div>
   );
