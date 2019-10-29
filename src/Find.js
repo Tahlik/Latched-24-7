@@ -1,6 +1,6 @@
 import React from "react";
 import useAxios from "axios-hooks";
-import { Button, Checkbox, Grid, Paper, Typography } from "@material-ui/core";
+import { Button, Paper, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
@@ -17,10 +17,10 @@ const useStyles = makeStyles({
   }
 });
 
-const Find = ({ name, phone, address }) => {
+const Find = () => {
   const classes = useStyles();
   const [{ data }, refetch] = useAxios(`/.netlify/functions/getProvider`);
-  const provider = data && data.provider || {};
+  const provider = (data && data.provider) || {};
 
   return (
     <Grid item xs={12}>
@@ -34,6 +34,8 @@ const Find = ({ name, phone, address }) => {
           <Button href={`tel:${provider.phone}`}>Call</Button>
         </div>
       </Paper>
+
+      <Button fullWidth variant="contained" color="primary" onClick={refetch}>NEW PROVIDER</Button>
     </Grid>
   );
 };

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Grid } from "@material-ui/core";
 
 import Home from "./Home";
 import Find from "./Find";
+import Verify from "./Verify";
 
 const App = () => {
   const [isProvider, setIsProvider] = useState(null);
@@ -18,7 +18,7 @@ const App = () => {
     <div>
       {shouldShowHome && <Home setIsProvider={setIsProvider} />}
       {shouldShowFind && <Find />}
-      {showVerifyPage && <div>verify</div>}
+      {showVerifyPage && <Verify />}
       {showStatusToggle && <div>toggle</div>}
     </div>
   );
