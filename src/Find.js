@@ -1,4 +1,5 @@
 import React from "react";
+import useAxios from "axios-hooks";
 import { Button, Checkbox, Grid, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -8,7 +9,7 @@ const useStyles = makeStyles({
   },
   container: {
     height: 100,
-    padding: 50,
+    padding: 50
   },
   flex: {
     display: "flex",
@@ -16,27 +17,25 @@ const useStyles = makeStyles({
   }
 });
 
-// Cooling Center
-
-const Shelter = ({ name, phone, address }) => {
+const Find = ({ name, phone, address }) => {
   const classes = useStyles();
+  const [{ data }, refetch] = useAxios(`/.netlify/functions/getProvider`);
+  const provider = data && data.provider || {};
 
   return (
     <Grid item xs={12}>
       <Paper className={classes.container}>
         <div className={classes.flex}>
-          
           <div>
-            <Typography variant="h6">{name}</Typography>
-            <Typography>{address}</Typography>
-            <Typography>{phone}</Typography>
+            <Typography variant="h6">{provider.name}</Typography>
+            <Typography>{provider.credentials}</Typography>
+            <Typography>{provider.phone}</Typography>
           </div>
-        <Button target="_blank" href={`http://maps.google.com/?q=${address}`}>Directions</Button>
-        <Button href={`tel:${phone}`}>Call</Button>
+          <Button href={`tel:${provider.phone}`}>Call</Button>
         </div>
       </Paper>
     </Grid>
   );
 };
 
-export default Shelter;
+export default Find;

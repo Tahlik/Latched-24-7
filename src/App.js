@@ -1,21 +1,25 @@
-import React from "react";
-import useAxios from "axios-hooks";
+import React, { useState } from "react";
 import { Grid } from "@material-ui/core";
 
-import Navigation from "./Navigation";
-import Shelter from "./Shelter";
+import Home from "./Home";
+import Find from "./Find";
 
 const App = () => {
-  const [{ data }, refetch] = useAxios(`/.netlify/functions/getShelters`);
-  const shelters = (data && data.shelters) || [];
+  const [isProvider, setIsProvider] = useState(null);
+  let isOnline = null;
+  let isVerified = null;
+
+  const shouldShowHome = isProvider === null;
+  const shouldShowFind = isProvider === false;
+  const showVerifyPage = isProvider && !isVerified;
+  const showStatusToggle = isProvider && isVerified;
 
   return (
     <div>
-      <Navigation reloadShelters={refetch} />
-
-      <Grid container spacing={1}>
-        <p>Hello</p>
-      </Grid>
+      {shouldShowHome && <Home setIsProvider={setIsProvider} />}
+      {shouldShowFind && <Find />}
+      {showVerifyPage && <div>verify</div>}
+      {showStatusToggle && <div>toggle</div>}
     </div>
   );
 };
