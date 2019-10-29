@@ -16,8 +16,7 @@ const images = [
     url:
       "https://media.npr.org/assets/img/2017/06/23/tri-breastfeeding_custom-7dba21ccb308a4556d7caf9176765e9f97cc6028-s800-c85.jpg",
     title: "Breastfeeding Mothers",
-    width: "100%",
-    height: 100
+    width: "100%"
   },
   {
     url: "https://www.nursingexplorer.com/img/articles/careers/42343242.jpg",
@@ -37,8 +36,7 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
     height: 400,
     [theme.breakpoints.down("xs")]: {
-      width: "100% !important", // Overrides inline-style
-      height: 100
+      width: "100% !important",
     },
     "&:hover, &$focusVisible": {
       zIndex: 1,
@@ -111,7 +109,8 @@ export default ({ setIsProvider }) => {
         className={classes.image}
         focusVisibleClassName={classes.focusVisible}
         style={{
-          width: images[0].width
+          width: images[0].width,
+          height: '50vh'
         }}
         onClick={() => setIsProvider(false)}
       >
@@ -142,7 +141,8 @@ export default ({ setIsProvider }) => {
         focusVisibleClassName={classes.focusVisible}
         onClick={() => setIsProvider(true)}
         style={{
-          width: images[1].width
+          width: images[1].width,
+          height: '50vh'
         }}
       >
         <span
