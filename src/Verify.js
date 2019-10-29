@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   }
 });
 
-const Verify = () => {
+const Verify = ({ setIsVerified }) => {
   const classes = useStyles();
   const [phone, setPhone] = useState("");
   const [{ data }, verify] = useAxios(
@@ -37,7 +37,12 @@ const Verify = () => {
         variant="outlined"
       />
 
-      <Button fullWidth variant="contained" color="primary" onClick={verify}>
+      <Button
+        fullWidth
+        variant="contained"
+        color="primary"
+        onClick={() => setIsVerified(true)}
+      >
         SEND
       </Button>
     </Grid>
