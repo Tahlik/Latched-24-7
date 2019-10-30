@@ -31,13 +31,14 @@ const Toggle = () => {
   }
 
   return (
-    <Grid item xs={12}>
+    <Grid item xs={6}>
       <Switch
         checked={isOnlineToggle}
         onChange={event => setOnline(event.target.checked)}
+        color="primary"
+        alignItems="center"
       />
     </Grid>
-    alignItems="center"
   );
 };
 
