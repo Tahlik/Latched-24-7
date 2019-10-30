@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useAxios from "axios-hooks";
-import { Switch, Grid } from "@material-ui/core";
+import { Switch, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
@@ -32,12 +32,20 @@ const Toggle = () => {
 
   return (
     <Grid item xs={6}>
-      <Switch
-        checked={isOnlineToggle}
-        onChange={event => setOnline(event.target.checked)}
-        color="primary"
-        alignItems="center"
-      />
+      <Typography component="div">
+        <Grid component="label" container alignItems="center" spacing={1}>
+          <Grid item>Off</Grid>
+          <Grid item>
+            <Switch
+              checked={isOnlineToggle} 
+              onChange={event => setOnline(event.target.checked)}
+              color="primary"
+              alignItems="center"
+              />
+          </Grid>
+          <Grid item>On</Grid>
+        </Grid>
+      </Typography>
     </Grid>
   );
 };
