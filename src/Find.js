@@ -33,7 +33,7 @@ const Find = () => {
     
     <Grid item xs={12}>
       <Button fullWidth  className={classes.button}
-        startIcon={<HomeSharpIcon/>}variant="contained" color="primary" href={`src/Home.js`}>Latched 24/7</Button>
+        startIcon={<HomeSharpIcon/>}variant="contained" color="primary" href={`https://zealous-booth-9032c9.netlify.com/`}>Latched 24/7</Button>
       <Paper className={classes.container}>
         <div className={classes.flex}>
           <div>

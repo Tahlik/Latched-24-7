@@ -34,7 +34,7 @@ const Verify = ({ setIsVerified }) => {
         startIcon={<HomeSharpIcon/>}
         variant="contained" 
         color="primary" 
-        href={`src/Home.js`}>Latched 24/7</Button>
+        href={`https://zealous-booth-9032c9.netlify.com/`}>Latched 24/7</Button>
       <TextField
         fullWidth
         label="Phone Number"
