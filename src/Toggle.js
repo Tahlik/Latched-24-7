@@ -35,6 +35,7 @@ const Toggle = () => {
       <Switch
         checked={isOnlineToggle}
         onChange={event => setOnline(event.target.checked)}
+        color="primary"
       />
     </Grid>
   );
