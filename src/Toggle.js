@@ -35,9 +35,9 @@ const Toggle = () => {
       <Switch
         checked={isOnlineToggle}
         onChange={event => setOnline(event.target.checked)}
-        
       />
     </Grid>
+    alignItems="center"
   );
 };
 
