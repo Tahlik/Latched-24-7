@@ -40,7 +40,7 @@ const Toggle = () => {
         href={`https://zealous-booth-9032c9.netlify.com/`}>Latched 24/7</Button>
       <Typography component="div">
         <Grid component="label" container alignItems="center" spacing={1}>
-          <Grid item>Off</Grid>
+          <Grid item>Offline</Grid>
           <Grid item>
             <Switch
               checked={isOnlineToggle} 
@@ -49,7 +49,7 @@ const Toggle = () => {
               alignItems="center"
               />
           </Grid>
-          <Grid item>On</Grid>
+          <Grid item>Online</Grid>
         </Grid>
       </Typography>
     </Grid>
