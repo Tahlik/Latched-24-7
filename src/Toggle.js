@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import useAxios from "axios-hooks";
-import { Switch, Grid, Typography } from "@material-ui/core";
+import { Switch, Grid, Typography, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import HomeSharpIcon from '@material-ui/icons/HomeSharp';
 
 const useStyles = makeStyles({
   checkbox: {
@@ -32,6 +33,11 @@ const Toggle = () => {
 
   return (
     <Grid item xs={6}>
+      <Button fullWidth  className={classes.button}
+        startIcon={<HomeSharpIcon/>}
+        variant="contained" 
+        color="primary" 
+        href={`https://zealous-booth-9032c9.netlify.com/`}>Latched 24/7</Button>
       <Typography component="div">
         <Grid component="label" container alignItems="center" spacing={1}>
           <Grid item>Off</Grid>
