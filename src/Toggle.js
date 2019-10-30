@@ -17,60 +17,13 @@ const useStyles = makeStyles({
   }
 });
 
-const IOSSwitch = withStyles(theme => ({
-  root: {
-    width: 42,
-    height: 26,
-    padding: 0,
-    margin: theme.spacing(1),
-  },
-  switchBase: {
-    padding: 1,
-    '&$checked': {
-      transform: 'translateX(16px)',
-      color: theme.palette.common.white,
-      '& + $track': {
-        backgroundColor: '#52d869',
-        opacity: 1,
-        border: 'none',
-      },
-    },
-    '&$focusVisible $thumb': {
-      color: '#52d869',
-      border: '6px solid #fff',
-    },
-  },
-  thumb: {
-    width: 24,
-    height: 24,
-  },
-  const IOSSwitch = withStyles(theme => ({
-    root: {
-      width: 42,
-      height: 26,
-      padding: 0,
-      margin: theme.spacing(1),
-    },
-    switchBase: {
-      padding: 1,
-      '&$checked': {
-        transform: 'translateX(16px)',
-        color: theme.palette.common.white,
-        '& + $track': {
-          backgroundColor: '#52d869',
-          opacity: 1,
-          border: 'none',
-        },
-      },
-      '&$focusVisible $thumb': {
-        color: '#52d869',
-        border: '6px solid #fff',
-      },
-    },
-    thumb: {
-      width: 24,
-      height: 24,
-    },
+const Toggle = () => {
+  const classes = useStyles();
+  const [isOnlineToggle, setIsOnlineToggle] = useState(true);
+  const [_, setStatus] = useAxios(
+    `/.netlify/functions/setStatus?is_online=${isOnlineToggle}`,
+    { manual: true }
+  );
 
   const setOnline = status => {
     setIsOnlineToggle(status);
@@ -82,7 +35,7 @@ const IOSSwitch = withStyles(theme => ({
       <Switch
         checked={isOnlineToggle}
         onChange={event => setOnline(event.target.checked)}
-        color="primary"
+        
       />
     </Grid>
   );
