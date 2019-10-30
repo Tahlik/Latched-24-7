@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useAxios from "axios-hooks";
 import { Button, Grid, TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import HomeSharpIcon from '@material-ui/icons/HomeSharp';
 
 const useStyles = makeStyles({
   checkbox: {
@@ -15,19 +16,25 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center"
   }
-});
 
+});
 const Verify = ({ setIsVerified }) => {
   const classes = useStyles();
   const [phone, setPhone] = useState("");
   const [{ data }, verify] = useAxios(
     `/.netlify/functions/verifyProvider?phone=${phone}`,
     { manual: true }
+    
   );
   const successful = (data && data === true) || false;
 
   return (
     <Grid item xs={12}>
+      <Button fullWidth  className={classes.button}
+        startIcon={<HomeSharpIcon/>}
+        variant="contained" 
+        color="primary" 
+        href={`src/Home.js`}>Latched 24/7</Button>
       <TextField
         fullWidth
         label="Phone Number"
